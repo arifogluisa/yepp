@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Postu sil!</legend>
+            <h2>Postu silməyə əminsiniz?</h2>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-danger" type="submit">Sil</button>
+            <a class="btn btn-outline-secondary" href="{% url 'post_detail' object.id %}">Xeyr, silmə</a>
+        </div>
+    </form>
+{% endblock content %}
