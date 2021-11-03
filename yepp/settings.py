@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'django-insecure-w+7jwg3ukv!^!hpcs*v69x6y^%27f7_iidm4*mb2%4xv%gpcmj'
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.getenv('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['myyepp.herokuapp.com']
 
