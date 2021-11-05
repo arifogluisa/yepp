@@ -1,1 +1,2 @@
 # yepp
+This is a project with authentication system. You can register, log in, log out, create posts as current user, update and delete these posts. You can also update your profile. You can change your profile picture, username and email. And when you log in if you don`t remember your password, you can click 'Forgot Password?' and write your email. After that you will get automatically an email with a link in it which you can reset your password there.
