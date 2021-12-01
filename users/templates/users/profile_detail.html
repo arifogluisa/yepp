@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ object.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ object.user.username|title }}</h2>
+            <h4>Following: {{ count }}</h4>
+          <p class="text-secondary">{{ object.user.email }}</p>
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="row">
+            <div class="four wide column">
+                {% if follow %}
+                    <form action="{% url 'follow-unfollow-view' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="profile_pk" value="{{ object.pk }}">
+                    <button type="submit" class="btn btn-outline-danger">Unfollow</button>
+                    </form>
+                {% else %}
+                    <form action="{% url 'follow-unfollow-view' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="profile_pk" value="{{ object.pk }}">
+                    <button id="follow-btn" class="btn btn-outline-info">Follow</button>
+                    </form>
+                {% endif %}
+            </div>
+        <br/><br/>
+        <hr>
+
+
+            {% for post in object.profile_post %}
+                <article class="media content-section">
+                    <img class="rounded-circle article-img" src="{{ post.author.image.url }}">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-2" href="#">{{ post.author.user.username|title }}</a>
+                            <small class="text-muted">{{ post.date_posted }}</small>
+                        </div>
+
+                        <p class="article-content">{{ post.content }}</p>
+                    </div>
+                </article>
+            {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

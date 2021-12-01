@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+{% for profile in profiles %}
+    <div class="ui segment">
+    <img class="rounded-circle article-img" src="{{ profile.image.url }}">
+        <a href="{% url 'profile-detail' profile.id %}">{{ profile.user.username|title }}</a>
+    <hr>
+    </div>
+
+{% endfor %}
+
+{% endblock content %}

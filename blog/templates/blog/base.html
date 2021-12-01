@@ -31,12 +31,13 @@
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'index' %}">Ana səhifə</a>
                     <a class="nav-item nav-link" href="{% url 'about' %}">Haqqında</a>
+                    <a class="nav-item nav-link" href="{% url 'profiles' %}">İzləyə biləcəyin profillər</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'post_create' %}">Yeni post</a>
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username|title }}</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Çıxış</a>
                     {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Giriş et</a>
