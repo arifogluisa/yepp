@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 from users.models import Profile
 from itertools import chain
+from django.contrib.auth.decorators import login_required
 
 
 class PostListView(ListView):
@@ -55,6 +56,7 @@ class PostDeleteView(DeleteView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
+@login_required()
 def posts_of_following_profiles(request):
     profile = Profile.objects.get(user=request.user)
     users = [user for user in profile.following.all()]
