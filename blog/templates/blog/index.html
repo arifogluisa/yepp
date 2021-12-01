@@ -7,6 +7,7 @@
         <div class="article-metadata">
             <a class="mr-2" href="{% url 'profile-detail' post.author.id %}">{{ post.author.user.username|title }}</a>
             <small class="text-muted">{{ post.date_posted }}</small>
+            <a href="{% url 'post_detail' post.id %}"><small class="text-muted">View</small></a>
         </div>
 
         <p class="article-content">{{ post.content }}</p>
